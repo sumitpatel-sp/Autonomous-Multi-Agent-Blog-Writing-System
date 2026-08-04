@@ -308,7 +308,7 @@ if out:
                         for t in tasks
                     ]
                 ).sort_values("id")
-                st.dataframe(df, width="stretch", hide_index=True)
+                st.dataframe(df, use_container_width=True, hide_index=True)
 
     with tab_evidence:
         st.subheader("Evidence")
@@ -317,7 +317,7 @@ if out:
             st.info("No evidence returned.")
         else:
             rows = [e.model_dump() if hasattr(e, "model_dump") else e for e in evidence]
-            st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
     with tab_preview:
         st.subheader("Markdown Preview")
